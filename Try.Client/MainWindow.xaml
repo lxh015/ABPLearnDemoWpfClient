@@ -1,0 +1,32 @@
+﻿<controls:MetroWindow
+        x:Class="Try.Client.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:Try.Client"
+        xmlns:controls="clr-namespace:MahApps.Metro.Controls;assembly=MahApps.Metro"
+        mc:Ignorable="d"
+        DataContext="{Binding Main,Source={StaticResource Locator}}"
+        Title="MainWindow" Height="450" Width="800">
+    <Grid>
+        <Button Content="获取列表测试" Command="{Binding TestCommand}" HorizontalAlignment="Left" Margin="10,10,0,0" VerticalAlignment="Top" Width="75"/>
+        <DataGrid HorizontalAlignment="Left" Height="367"
+                  ItemsSource="{Binding StudentDtos,Mode=OneWay}"
+                    AutoGenerateColumns="False"
+                    CanUserAddRows="False"
+                    CanUserDeleteRows="False"
+                  Margin="10,42,0,0" VerticalAlignment="Top" Width="772">
+            <DataGrid.Columns>
+                <DataGridTextColumn Binding="{Binding Id}" Width="*" Header="编号">
+                </DataGridTextColumn>
+                <DataGridTextColumn Binding="{Binding Name}" Width="*" Header="姓名">
+                </DataGridTextColumn>
+                <DataGridTextColumn Binding="{Binding Age}" Width="*" Header="年龄">
+                </DataGridTextColumn>
+                <DataGridTextColumn Binding="{Binding Sex,Mode=OneWay}" Width="*" Header="性别">
+                </DataGridTextColumn>
+            </DataGrid.Columns>
+        </DataGrid>
+    </Grid>
+</controls:MetroWindow>
